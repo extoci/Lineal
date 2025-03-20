@@ -26,8 +26,18 @@ export async function GET(request: NextRequest) {
     const html = await response.text()
     const $ = cheerio.load(html)
 
+    // Clean text content by removing extra whitespace and duplicates
+    const cleanText = (text: string) => {
+      const words = text.split(/\s+/).filter(Boolean)
+      return [...new Set(words)].join(" ").trim()
+    }
+
     const metadata: Record<string, string | undefined> = {
-      title: $("title").text() || undefined,
+      // Get title with priority and cleaning
+      title: cleanText($("head title").first().text()) || 
+             cleanText($("meta[property='og:title']").attr("content") || "") ||
+             cleanText($("meta[name='twitter:title']").attr("content") || "") ||
+             undefined,
       description: $('meta[name="description"]').attr("content") || undefined,
 
       ogTitle: $('meta[property="og:title"]').attr("content") || undefined,
