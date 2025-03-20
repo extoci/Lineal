@@ -16,7 +16,7 @@ export default function LocalhostOption() {
   return (
     <div>
       <button
-        onClick={() => setIsExpanded(!isExpanded)}
+        onMouseDown={() => setIsExpanded(!isExpanded)}
         className="text-gray-600 dark:text-[#b0b0b0] hover:text-gray-900 dark:hover:text-[#e0e0e0] flex items-center transition-colors"
       >
         localhost <ArrowRight size={14} className={`ml-1 transition-transform ${isExpanded ? "rotate-90" : ""}`} />
@@ -35,7 +35,7 @@ export default function LocalhostOption() {
                 npm install -g cloudflared
               </code>
               <button
-                onClick={() => handleCopy("npm install -g cloudflared")}
+                onMouseDown={() => handleCopy("npm install -g cloudflared")}
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-[#888888] hover:text-gray-700 dark:hover:text-[#b0b0b0]"
                 aria-label="Copy command"
               >
@@ -51,7 +51,7 @@ export default function LocalhostOption() {
                 cloudflared tunnel --url http://localhost:3000
               </code>
               <button
-                onClick={() => handleCopy("cloudflared tunnel --url http://localhost:3000")}
+                onMouseDown={() => handleCopy("cloudflared tunnel --url http://localhost:3000")}
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-[#888888] hover:text-gray-700 dark:hover:text-[#b0b0b0]"
                 aria-label="Copy command"
               >

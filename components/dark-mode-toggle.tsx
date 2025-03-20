@@ -8,7 +8,7 @@ export default function DarkModeToggle() {
 
   return (
     <button
-      onClick={() => setDarkMode(!darkMode)}
+      onMouseDown={() => setDarkMode(!darkMode)}
       className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#444444] transition-colors"
       aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
     >

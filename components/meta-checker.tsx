@@ -132,7 +132,7 @@ export default function MetaChecker() {
                   {url && (
                     <button
                       type="button"
-                      onClick={(e) => {
+                      onMouseDown={(e) => {
                         e.preventDefault()
                         setUrl("")
                         setMetadata(null)
@@ -148,7 +148,7 @@ export default function MetaChecker() {
                   {metadata && (
                     <button
                       type="button"
-                      onClick={(e) => {
+                      onMouseDown={(e) => {
                         e.preventDefault()
                         fetchMetadata(url)
                       }}
@@ -194,7 +194,7 @@ export default function MetaChecker() {
             {suggestedUrls.map((suggestedUrl) => (
               <li key={suggestedUrl}>
                 <button
-                  onClick={() => {
+                  onMouseDown={() => {
                     setUrl(suggestedUrl)
                     fetchMetadata(suggestedUrl)
                   }}
@@ -216,37 +216,37 @@ export default function MetaChecker() {
           <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">RESULTS</div>
           <div className="flex border-b border-gray-200 dark:border-gray-800 mb-6 overflow-x-auto">
             <button
-              onClick={() => setActiveTab("basic")}
+              onMouseDown={() => setActiveTab("basic")}
               className={`px-4 py-2 text-sm ${activeTab === "basic" ? "border-b-2 border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
             >
               Basic
             </button>
             <button
-              onClick={() => setActiveTab("opengraph")}
+              onMouseDown={() => setActiveTab("opengraph")}
               className={`px-4 py-2 text-sm ${activeTab === "opengraph" ? "border-b-2 border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
             >
               Open Graph
             </button>
             <button
-              onClick={() => setActiveTab("twitter")}
+              onMouseDown={() => setActiveTab("twitter")}
               className={`px-4 py-2 text-sm ${activeTab === "twitter" ? "border-b-2 border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
             >
               X
             </button>
             <button
-              onClick={() => setActiveTab("images")}
+              onMouseDown={() => setActiveTab("images")}
               className={`px-4 py-2 text-sm ${activeTab === "images" ? "border-b-2 border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
             >
               Images
             </button>
             <button
-              onClick={() => setActiveTab("raw")}
+              onMouseDown={() => setActiveTab("raw")}
               className={`px-4 py-2 text-sm ${activeTab === "raw" ? "border-b-2 border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
             >
               Raw
             </button>
             <button
-              onClick={() => setActiveTab("other")}
+              onMouseDown={() => setActiveTab("other")}
               className={`px-4 py-2 text-sm ${activeTab === "other" ? "border-b-2 border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
             >
               Other
@@ -725,7 +725,7 @@ export default function MetaChecker() {
               <div className="flex justify-between items-center">
                 <h3 className="text-sm font-medium dark:text-gray-200">Complete Metadata</h3>
                 <button
-                  onClick={copyToClipboard}
+                  onMouseDown={copyToClipboard}
                   className="text-xs px-3 py-1.5 bg-gray-200 dark:bg-[#181818] rounded hover:bg-gray-300 dark:hover:bg-[#222222] transition-colors flex items-center gap-1.5 group"
                 >
                   {copied ? (
@@ -756,43 +756,43 @@ export default function MetaChecker() {
             <div>
               <div className="flex border-b border-gray-200 dark:border-gray-800 mb-4 overflow-x-auto">
                 <button
-                  onClick={() => setActivePlatform("telegram")}
+                  onMouseDown={() => setActivePlatform("telegram")}
                   className={`px-3 py-1 text-xs ${activePlatform === "telegram" ? "border-b border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
                 >
                   Telegram
                 </button>
                 <button
-                  onClick={() => setActivePlatform("discord")}
+                  onMouseDown={() => setActivePlatform("discord")}
                   className={`px-3 py-1 text-xs ${activePlatform === "discord" ? "border-b border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
                 >
                   Discord
                 </button>
                 <button
-                  onClick={() => setActivePlatform("whatsapp")}
+                  onMouseDown={() => setActivePlatform("whatsapp")}
                   className={`px-3 py-1 text-xs ${activePlatform === "whatsapp" ? "border-b border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
                 >
                   WhatsApp
                 </button>
                 <button
-                  onClick={() => setActivePlatform("slack")}
+                  onMouseDown={() => setActivePlatform("slack")}
                   className={`px-3 py-1 text-xs ${activePlatform === "slack" ? "border-b border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
                 >
                   Slack
                 </button>
                 <button
-                  onClick={() => setActivePlatform("facebook")}
+                  onMouseDown={() => setActivePlatform("facebook")}
                   className={`px-3 py-1 text-xs ${activePlatform === "facebook" ? "border-b border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
                 >
                   Facebook
                 </button>
                 <button
-                  onClick={() => setActivePlatform("twitter")}
+                  onMouseDown={() => setActivePlatform("twitter")}
                   className={`px-3 py-1 text-xs ${activePlatform === "twitter" ? "border-b border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
                 >
                   X
                 </button>
                 <button
-                  onClick={() => setActivePlatform("linkedin")}
+                  onMouseDown={() => setActivePlatform("linkedin")}
                   className={`px-3 py-1 text-xs ${activePlatform === "linkedin" ? "border-b border-gray-800 dark:border-[#444444] font-medium" : "text-gray-500 dark:text-gray-400"}`}
                 >
                   LinkedIn
