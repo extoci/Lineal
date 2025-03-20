@@ -412,65 +412,132 @@ export default function MetaChecker() {
               </div>
 
               {showSuggestions && (
-                <div className="mt-6 p-4 bg-gray-50 dark:bg-[#181818] rounded-lg border border-gray-200 dark:border-[#222222] shadow-sm dark:shadow-inner">
+                <div className="mt-6 p-4 bg-white dark:bg-[#111111] rounded-lg border border-gray-200 dark:border-[#222222] shadow-sm">
                   <h3 className="text-sm font-medium mb-3 text-black dark:text-[#E0E0E0]">Suggestions</h3>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
+                    {/* Title Suggestions */}
                     {!metadata.title ? (
-                      <p className="text-xs text-red-500 dark:text-red-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-red-500 mr-2"></span>
-                        Missing title tag. Add a descriptive title.
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Missing title tag
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Add a descriptive title that accurately represents your page content. This is crucial for SEO and social sharing.
+                        </p>
+                      </div>
                     ) : metadata.title.length < 30 ? (
-                      <p className="text-xs text-amber-500 dark:text-amber-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
-                        Title is too short. Aim for 50-60 characters.
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Title is too short ({metadata.title.length} characters)
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Aim for 50-60 characters to maximize visibility in search results. Your title should be descriptive yet concise.
+                        </p>
+                      </div>
                     ) : metadata.title.length > 60 ? (
-                      <p className="text-xs text-amber-500 dark:text-amber-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
-                        Title is too long. Keep it under 60 characters.
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Title is too long ({metadata.title.length} characters)
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Keep it under 60 characters to prevent truncation in search results. Focus on the most important keywords.
+                        </p>
+                      </div>
                     ) : (
-                      <p className="text-xs text-green-500 dark:text-green-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
-                        Title length is perfect!
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rotate-45 bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Title length is optimal ({metadata.title.length} characters)
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Your title is well-optimized for search engines and social sharing.
+                        </p>
+                      </div>
                     )}
 
+                    {/* Description Suggestions */}
                     {!metadata.description ? (
-                      <p className="text-xs text-red-500 dark:text-red-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-red-500 mr-2"></span>
-                        Missing description. Add a meta description.
-                      </p>
-                    ) : metadata.description.length < 50 ? (
-                      <p className="text-xs text-amber-500 dark:text-amber-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
-                        Description is too short. Aim for 150-160 characters.
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Missing meta description
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Add a compelling description that summarizes your page. This appears in search results and social shares.
+                        </p>
+                      </div>
+                    ) : metadata.description.length < 120 ? (
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Description is too short ({metadata.description.length} characters)
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Aim for 150-160 characters to provide a comprehensive preview. Include key information and a call to action.
+                        </p>
+                      </div>
                     ) : metadata.description.length > 160 ? (
-                      <p className="text-xs text-amber-500 dark:text-amber-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
-                        Description is too long. Keep it under 160 characters.
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Description is too long ({metadata.description.length} characters)
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Keep it under 160 characters to prevent truncation. Place important information at the beginning.
+                        </p>
+                      </div>
                     ) : (
-                      <p className="text-xs text-green-500 dark:text-green-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
-                        Description length is perfect!
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rotate-45 bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Description length is optimal ({metadata.description.length} characters)
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Your description is well-optimized for search visibility and click-through rates.
+                        </p>
+                      </div>
                     )}
 
+                    {/* Viewport Suggestion */}
                     {!metadata.viewport && (
-                      <p className="text-xs text-amber-500 dark:text-amber-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
-                        Missing viewport meta tag. Important for mobile responsiveness.
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Missing viewport meta tag
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Add <code className="bg-gray-100 dark:bg-[#181818] px-1.5 py-0.5 rounded text-gray-700 dark:text-[#B0B0B0]">viewport</code> meta tag for proper mobile rendering. Recommended value: <code className="bg-gray-100 dark:bg-[#181818] px-1.5 py-0.5 rounded text-gray-700 dark:text-[#B0B0B0]">width=device-width, initial-scale=1</code>
+                        </p>
+                      </div>
                     )}
 
+                    {/* Canonical URL Suggestion */}
                     {!metadata.canonical && (
-                      <p className="text-xs text-amber-500 dark:text-amber-400 flex items-center">
-                        <span className="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
-                        Missing canonical URL. Helps prevent duplicate content issues.
-                      </p>
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Missing canonical URL
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Add a canonical URL to prevent duplicate content issues and consolidate SEO value to your preferred URL.
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Language Suggestion */}
+                    {!metadata.language && (
+                      <div className="space-y-1">
+                        <p className="text-xs text-gray-900 dark:text-[#E0E0E0] flex items-center">
+                          <span className="inline-block w-2 h-2 rounded-sm bg-gray-900 dark:bg-[#E0E0E0] mr-2"></span>
+                          Missing language declaration
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-[#888888] pl-4">
+                          Add <code className="bg-gray-100 dark:bg-[#181818] px-1.5 py-0.5 rounded text-gray-700 dark:text-[#B0B0B0]">lang</code> attribute to your HTML tag for better accessibility and SEO.
+                        </p>
+                      </div>
                     )}
                   </div>
                 </div>
