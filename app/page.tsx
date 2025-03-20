@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-black dark:bg-[#121212] dark:text-[#E0E0E0] font-mono">
       <header className="w-full p-4 flex justify-between items-center max-w-3xl mx-auto backdrop-blur-sm bg-white/80 dark:bg-[#121212]/90 sticky top-0 z-10">
-        <div className="font-bold text-xl">line.al</div>
+        <Link href="/" className="font-bold text-xl hover:text-gray-700 dark:hover:text-[#FFFFFF] transition-colors">line.al</Link>
         <div className="flex items-center gap-2">
           <DarkModeToggle />
           <SettingsDropdown />
